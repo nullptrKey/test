@@ -37,3 +37,6 @@ jobs:
         source "${GITHUB_WORKSPACE}/settings.ini"
       env:
         REPO_URL: ${REPO_URL}
+    - name: test
+      run: |
+        echo $${env.REPO_URL}
