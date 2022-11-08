@@ -14,26 +14,24 @@ on:
 env:
   DAY_OF_WEEK: Monday
   DATE: $(date +'%Y-%m-%d')
+  RUN_VALIDATION: true
   
   
 jobs:
-  greeting_job:
-    runs-on: ubuntu-latest
-    
-    env:
-      Greeting: Hello
+  build:
+    runs-on:  ubuntu-18.04
+    if: github.event.repository.owner.id == github.event.sender.id
+
+    name: Build ${{matrix.target}}
+    strategy:
+      fail-fast: false
+      matrix:
+        target: [lean-minimal-x64,lean-complete-x64]
+
     steps:
-      - name: "Say Hello Mona it's Monday"
-        run: |
-          cat "$GITHUB_ENV/settings.ini"
-          #cat REPO_URL
-          echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
-          #a = $(date +'%Y-%m-%d')
-        env:
-          First_Name: ${REPO_URL}
-          
-      - name: test
-        run: |
-          echo ${{ env.DATE }}
-          echo ${{ env.First_Name }}
-          #echo $a
+    - name: Checkout
+      uses: actions/checkout@v2
+    
+    - name: Set Date
+      run: |
+        cat "${GITHUB_WORKSPACE}/settings.ini"
