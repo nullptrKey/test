@@ -8,8 +8,6 @@ on:
       - master
     paths:
       - 'start'
-  schedule:
-    - cron: 0 20 */1 * *
   watch:
     types: [started]
 
@@ -35,8 +33,7 @@ jobs:
     - name: Load Settings.ini
       run: |    
         source "${GITHUB_WORKSPACE}/settings.ini"
-      env:
-        REPO_URL: ${REPO_URL}
+        echo "REPO_URL='https://github.com/coolsnowwolf/lede'" >> $GITHUB_ENV
     - name: test
       run: |
         echo $${env.REPO_URL}
