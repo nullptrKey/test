@@ -1,22 +1,22 @@
-name: Greeting on variable day
+name: Openwrt-AutoBuild
 
 on:
-  release:
-    types: [published]
+#  release:
+#    types: [published]
   push:
     branches:
       - master
     paths:
       - 'start'
+  schedule:
+    - cron: 0 20 */1 * *
   watch:
     types: [started]
 
 env:
-  DAY_OF_WEEK: Monday
   DATE: $(date +'%Y-%m-%d')
   RUN_VALIDATION: true
-  
-  
+
 jobs:
   build:
     runs-on:  ubuntu-18.04
@@ -32,13 +32,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     
-    - name: Set Date
-      run: |
+    - name: Load Settings.ini
+      run: |    
         source "${GITHUB_WORKSPACE}/settings.ini"
-        echo ${{env.DATE}}
-        echo $REPO_URL
       env:
-        REPO_URL: $REPO_URL
-    - name: Set Date2
-      run: |
-        echo "${{env.REPO_URL}}"
+        REPO_URL: ${REPO_URL}
