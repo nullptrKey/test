@@ -35,4 +35,4 @@ jobs:
         echo "REPO_URL=${REPO_URL}" >> $GITHUB_ENV
     - name: test
       run: |
-        echo ${env.REPO_URL}
+        echo ${{env.REPO_URL}}
