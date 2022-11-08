@@ -24,6 +24,9 @@ jobs:
         run: |
           echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
           date=$(date +%Y-%m-%d)
-          echo $date
+          #echo $date
         env:
           First_Name: Mona
+      - name: test
+        run: |
+          echo $date
