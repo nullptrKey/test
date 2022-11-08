@@ -31,7 +31,8 @@ jobs:
     
     - name: Load Settings.ini
       run: |
-        echo "REPO_URL=https://github.com/coolsnowwolf/lede" >> $GITHUB_ENV
+        source "${GITHUB_WORKSPACE}/settings.ini"
+        echo "REPO_URL=${REPO_URL}" >> $GITHUB_ENV
     - name: test
       run: |
-        echo $${env.REPO_URL}
+        echo ${env.REPO_URL}
