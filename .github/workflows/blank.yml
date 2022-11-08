@@ -13,7 +13,9 @@ on:
 
 env:
   DAY_OF_WEEK: Monday
-
+  DATE: $(date +'%Y-%m-%d')
+  
+  
 jobs:
   greeting_job:
     runs-on: ubuntu-latest
@@ -23,8 +25,6 @@ jobs:
       - name: "Say Hello Mona it's Monday"
         run: |
           echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
-          date=$(date +%Y-%m-%d)
-          #echo $date
         env:
           First_Name: Mona
       - name: test
