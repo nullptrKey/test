@@ -36,3 +36,4 @@ jobs:
       run: |
         source "${GITHUB_WORKSPACE}/settings.ini"
         echo ${{env.DATE}}
+        echo $REPO_URL
