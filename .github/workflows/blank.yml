@@ -25,12 +25,12 @@ jobs:
       - name: "Say Hello Mona it's Monday"
         run: |
           echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
-          a = $(date +'%Y-%m-%d')
+          #a = $(date +'%Y-%m-%d')
         env:
           First_Name: Mona
-          DATEA: a
+          #DATEA: a
       - name: test
         run: |
           echo ${{ env.DATE }}
-          echo ${{ env.DATEA }}
-          echo $a
+          #echo ${{ env.DATEA }}
+          #echo $a
