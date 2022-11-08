@@ -30,9 +30,8 @@ jobs:
       uses: actions/checkout@v2
     
     - name: Load Settings.ini
-      run: |    
-        source "${GITHUB_WORKSPACE}/settings.ini"
-        echo "REPO_URL=${REPO_URL}" >> $GITHUB_ENV
+      run: |
+        echo "REPO_URL=https://github.com/coolsnowwolf/lede" >> $GITHUB_ENV
     - name: test
       run: |
         echo $${env.REPO_URL}
