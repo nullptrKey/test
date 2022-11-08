@@ -41,4 +41,4 @@ jobs:
         REPO_URL: $REPO_URL
     - name: Set Date2
       run: |
-        echo ${{env.REPO_URL}}
+        echo "${{env.REPO_URL}}"
