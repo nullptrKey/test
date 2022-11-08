@@ -25,7 +25,7 @@ jobs:
     steps:
       - name: "Say Hello Mona it's Monday"
         run: |
-          cat "${GITHUB_WORKSPACE}/settings.ini"
+          cat "$GITHUB_ENV/settings.ini"
           #cat REPO_URL
           echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
           #a = $(date +'%Y-%m-%d')
