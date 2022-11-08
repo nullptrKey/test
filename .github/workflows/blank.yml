@@ -35,4 +35,4 @@ jobs:
     - name: Set Date
       run: |
         source "${GITHUB_WORKSPACE}/settings.ini"
-        cat REPO_URL
+        echo ${{env.DATE}}
