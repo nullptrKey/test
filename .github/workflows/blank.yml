@@ -34,4 +34,5 @@ jobs:
     
     - name: Set Date
       run: |
-        cat "${GITHUB_WORKSPACE}/settings.ini"
+        source "${GITHUB_WORKSPACE}/settings.ini"
+        cat REPO_URL
